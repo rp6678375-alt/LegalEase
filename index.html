@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LegalEase - AI Legal Assistant</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',sans-serif}
+body{background:linear-gradient(135deg,#0f0c29,#302b63,#24243e);color:white;min-height:100vh}
+.navbar{padding:20px 40px;display:flex;justify-content:space-between;align-items:center}
+.logo{font-size:28px;font-weight:bold;background:linear-gradient(90deg,#00f2fe,#4facfe);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero{text-align:center;padding:80px 20px}
+.hero h1{font-size:52px;margin-bottom:20px;line-height:1.2}
+.hero h1 span{background:linear-gradient(90deg,#00f2fe,#f093fb);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero p{font-size:18px;opacity:0.8;max-width:600px;margin:20px auto}
+.card{max-width:700px;margin:40px auto;background:rgba(255,255,255,0.1);backdrop-filter:blur(10px);border-radius:20px;padding:30px;border:1px solid rgba(255,255,255,0.2)}
+.upload{border:2px dashed #4facfe;border-radius:15px;padding:40px;text-align:center;cursor:pointer;transition:0.3s}
+.upload:hover{background:rgba(79,172,254,0.1)}
+.btn{width:100%;padding:15px;background:linear-gradient(90deg,#00f2fe,#4facfe);border:none;border-radius:10px;color:#000;font-weight:bold;font-size:16px;margin-top:20px;cursor:pointer}
+.result{margin-top:20px;background:rgba(0,0,0,0.3);padding:20px;border-radius:10px;display:none}
+.tag{display:inline-block;background:rgba(79,172,254,0.3);padding:5px 12px;border-radius:20px;font-size:12px;margin:5px}
+</style>
+</head>
+<body>
+<div class="navbar"><div class="logo">⚖️ LegalEase</div><div>rp6678375-alt</div></div>
+<div class="hero">
+<h1>The Future of Legal <br><span>Documents is Here</span></h1>
+<p>Upload any legal document and our AI will summarize, simplify, and explain it in simple Tamil & English.</p>
+<div class="card">
+<div class="upload" onclick="document.getElementById('file').click()">
+<div style="font-size:40px">📄</div>
+<h3>Drop your legal document here</h3>
+<p style="opacity:0.6;font-size:14px;margin-top:10px">PDF, DOCX supported</p>
+<input type="file" id="file" hidden onchange="handleFile(this)">
+</div>
+<div class="result" id="result">
+<h3>✅ Analysis Complete!</h3>
+<div style="margin-top:15px">
+<span class="tag">Contract Type: Rental Agreement</span>
+<span class="tag">Risk Level: Low</span>
+<span class="tag">Pages: 4</span>
+</div>
+<p style="margin-top:15px;line-height:1.6;font-size:15px">
+<b>Simple Summary:</b><br>
+This is a rental agreement for 11 months. Rent is Rs. 15,000 per month. Advance Rs. 75,000. No major risky clauses found. You can sign safely but check clause 8 about maintenance charges.
+</p>
+<p style="margin-top:10px;opacity:0.7">Tamil: Idhu oru 11 maasatha vadagai opantham. Maadha vadagai Rs.15000. Mun panam Rs.75000. Periya risk ethuvum illa.</p>
+</div>
+<button class="btn" onclick="analyze()">✨ Analyze Document with AI</button>
+</div>
+</div>
+<script>
+function handleFile(input){
+ if(input.files[0]){
+  document.querySelector('.upload h3').innerText = '✅ ' + input.files[0].name + ' Ready!';
+ }
+}
+function analyze(){
+ document.getElementById('result').style.display='block';
+ document.getElementById('result').scrollIntoView({behavior:'smooth'});
+}
+</script>
+</body>
+</html>
